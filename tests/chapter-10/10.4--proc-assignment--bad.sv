@@ -9,16 +9,15 @@
 
 /*
 :name: proc_assignment__bad
-:description: continuous assignment with delay test
-:should_fail_because: Illegal to procedurally assign to wire, IEEE Table 10-1
-:tags: 10.3
+:description: procedural assignment to a net test
+:should_fail_because: procedure contains assignment to a net rather than a variable
+:tags: 10.4
 :type: simulation elaboration
 */
 module top(input a, input b);
 
 wire w;
 
-// Illegal to procedurally assign to wire, IEEE Table 10-1
 initial
 	w = #10 a & b;
 
